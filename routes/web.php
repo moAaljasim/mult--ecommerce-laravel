@@ -28,7 +28,8 @@ Route::get('/dashboard', function () {
  Route::middleware(['auth','role:admin'])->group(function(){
     Route::get('/admin/dashboard',[AdminController::class ,'Admindashboard'])->name('admin.dashboard'); 
     Route::get('/admin/logout',[AdminController::class ,'Admindestroy'])->name('admin.logout'); 
-    Route::get('/admin/profıle',[AdminController::class ,'Adminprofile'])->name('admin.profile'); 
+    Route::get('/admin/profile',[AdminController::class ,'Adminprofile'])->name('admin.profile'); 
+    Route::post('/admin/profile/store',[AdminController::class ,'AdminProfileStore'])->name('admin.profile.store'); 
  });
 
 
