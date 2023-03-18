@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\VendorController;
+use App\Http\Controllers\UserController;
  
 /*
 |--------------------------------------------------------------------------
@@ -38,11 +39,18 @@ Route::get('/dashboard', function () {
  
  Route::middleware(['auth','role:vendor'])->group(function(){
     Route::get('/vendor/dashboard',[vendorController::class ,'Vendordashboard'])->name('vendor.dashboard'); 
+    Route::get('/vendor/logout',[vendorController::class ,'Vendordestroy'])->name('vendor.logout'); 
+    Route::get('/vendor/profile',[vendorController::class ,'Vendorprofile'])->name('vendor.profile'); 
+    Route::post('/vendor/profile/store',[vendorController::class ,'VendorProfileStore'])->name('vendor.profile.store'); 
+
+
+
  });
 
 
  //no auth
  Route::get('/admin/login',[AdminController::class ,'Adminlogin']); 
+ Route::get('/vendor/login',[vendorController::class ,'Vendorlogin']); 
 
 
 

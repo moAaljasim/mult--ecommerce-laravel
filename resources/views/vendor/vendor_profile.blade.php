@@ -5,13 +5,13 @@
 <div class="page-content"> 
 				<!--breadcrumb-->
 				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-					<div class="breadcrumb-title pe-3">Admin User Profile</div>
+					<div class="breadcrumb-title pe-3">vendor User Profile</div>
 					<div class="ps-3">
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb mb-0 p-0">
 								<li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
 								</li>
-								<li class="breadcrumb-item active" aria-current="page">Admin  Profilep</li>
+								<li class="breadcrumb-item active" aria-current="page">vendor  Profilep</li>
 							</ol>
 						</nav>
 					</div>
@@ -29,7 +29,7 @@
 
 
 										<div class="d-flex flex-column align-items-center text-center">
-											<img src="{{(!empty($data->photo)) ?url('upload/admin_images/'.$data->photo):url('upload/no_image.jpg')}}" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
+											<img src="{{(!empty($data->photo)) ?url('upload/vendor_images/'.$data->photo):url('upload/no_image.jpg')}}" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
 											<div class="mt-3">
 												<h4>{{$data->name}}
                                                 </h4>
@@ -57,9 +57,9 @@
 								<div class="card">
 									<div class="card-body">
 
-                                    <form method="post" action="{{ route('admin.profile.store') }}" enctype="multipart/form-data" >
-			@csrf
-                                    
+                                    <form method="post" action="{{ route('vendor.profile.store') }}" enctype="multipart/form-data" >
+		                         	@csrf
+                                     
 										<div class="row mb-3">
 											    <div class="col-sm-3">
 												<h6 class="mb-0">Full Name</h6>
@@ -70,7 +70,7 @@
 										</div>
                                         <div class="row mb-3">
 											    <div class="col-sm-3">
-												<h6 class="mb-0">Full Name</h6>
+												<h6 class="mb-0">shop Name</h6>
 											</div>
 											<div class="col-sm-9 text-secondary">
 												<input type="text" name="name" class="form-control" value="{{$data->username}}" />
@@ -100,7 +100,27 @@
 												<input type="text" name="address" class="form-control" value="{{$data->address}}" />
 											</div>
 										</div>
-										
+                                        <div class="row mb-3">
+											<div class="col-sm-3">
+												<h6 class="mb-0">vendor date</h6>
+											</div>
+											<div class="col-sm-9 text-secondary">
+                                                     <select name="vendor_join" class="form-select mb-3" aria-label="Default select example">
+                                                        <option selected="">Open this select menu</option>
+                                                        <option value="1">2012</option>
+                                                        <option value="2">2013</option>
+                                                        <option value="3">2014  </option>
+                                                    </select>
+											</div>
+                                         </div>
+										<div class="row mb-3">
+											<div class="col-sm-3">
+												<h6 class="mb-0">vendor info</h6>
+											</div>
+											<div class="col-sm-9 text-secondary">
+                                            <textarea name="vendor_short_info" class="form-control" id="inputAddress2" placeholder="Address 2..." rows="3"></textarea>
+											</div>
+                                        </div >
 										<div class="row mb-3">
 											<div class="col-sm-3">
 												<h6 class="mb-0">photo</h6>
@@ -112,7 +132,7 @@
                                         <div class="row">
 											<div class="col-sm-3"></div>
 											<div class="col-sm-9 text-secondary" >
-                                            <img id="showImage" src="{{(!empty($data->photo)) ?url('upload/admin_images/'.$data->photo):url('upload/no_image.jpg')}}" 
+                                            <img id="showImage" src="{{(!empty($data->photo)) ?url('upload/vendor_images/'.$data->photo):url('upload/no_image.jpg')}}" 
                                             alt="Admin" style="width:100px; height:100px"  >
 											</div>
 										</div>
